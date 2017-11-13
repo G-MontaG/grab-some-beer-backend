@@ -3,7 +3,7 @@ import { BaseController } from '../base.controller';
 
 class FoursquareController extends BaseController {
     public handler() {
-        this.res.status(200).send('test');
+        this.res.status(200).send(process.env.FOURSQUARE_CLIENT_ID);
     }
 }
 
