@@ -17,7 +17,6 @@ class FoursquareController extends BaseController {
             method: 'GET'
         };
 
-        console.log(options);
         const req = https.request(options, (res) => {
             this.res.writeHead(res.statusCode, res.headers);
             return res.pipe(this.res, {end: true});

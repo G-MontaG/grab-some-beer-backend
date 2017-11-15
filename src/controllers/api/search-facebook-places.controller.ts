@@ -1,9 +1,27 @@
 import express = require('express');
+import https = require('https');
+import querystring = require('querystring');
 import { BaseController } from '../base.controller';
 
 class FacebookPlacesController extends BaseController {
     public handler() {
-        this.res.status(200).send(process.env.FACEBOOK_APP_ID);
+        const options = {
+            hostname: 'graph.facebook.com',
+            path: '/v2.11/search?' + querystring.stringify(Object.assign({},
+                this.req.query,
+                {
+                    'type': 'place',
+                    'access_token': `${process.env.FACEBOOK_APP_ID}|${process.env.FACEBOOK_APP_SECRET}`,
+                }),
+                '&', '=', {encodeURIComponent: (s: any) => s}),
+            method: 'GET'
+        };
+
+        const req = https.request(options, (res) => {
+            this.res.writeHead(res.statusCode, res.headers);
+            return res.pipe(this.res, {end: true});
+        });
+        this.req.pipe(req, {end: true});
     }
 }
 
