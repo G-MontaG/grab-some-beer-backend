@@ -1,7 +1,6 @@
 {
   "extends": [
-    "tslint:recommended",
-    "tslint-immutable"
+    "tslint:recommended"
   ],
   "rules": {
     "trailing-comma": [false, {"multiline": "always", "singleline": "never"}],
@@ -51,7 +50,6 @@
       "avoid-escape"
     ],
     "semicolon": [true, "always"],
-    "typedef": [true, "call-signature"],
     "typedef-whitespace": [
       true,
       {

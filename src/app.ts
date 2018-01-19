@@ -30,7 +30,7 @@ class Server {
 
         this.connection = this.app.listen(this.app.get('port'), () => {
             winston.log('info', `Server listening on port ${this.app.get('port')} in ${this.app.get('env')} mode`);
-            if(process.send) {
+            if (process.send) {
                 process.send('ready');
             }
         });
@@ -55,8 +55,9 @@ class Server {
         }
 
         this.app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
-            winston.log('error', `${req.protocol} ${req.method} ${req.originalUrl} [${err.status || err.code}] - ${err.message}`);
-            if(err.stack) {
+            winston.log('error',
+                `${req.protocol} ${req.method} ${req.originalUrl} [${err.status || err.code}] - ${err.message}`);
+            if (err.stack) {
                 winston.log('error', err.stack);
             }
             res.status(err.status || 500).send({
