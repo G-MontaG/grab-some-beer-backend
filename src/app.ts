@@ -7,7 +7,7 @@ import helmet = require('helmet');
 import dotenv = require('dotenv');
 import winston = require('winston');
 
-dotenv.config({path: path.resolve('./environment/.env')});
+dotenv.config({path: path.resolve('.env')});
 
 import { apiRouter } from './controllers/api/api.router';
 
