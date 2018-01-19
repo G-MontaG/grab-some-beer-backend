@@ -4,7 +4,7 @@ module.exports = {
             name: 'Grab Some Beer API',
             cwd: "./compiled",
             script: 'app.js',
-            instances: 4,
+            instances: 2,
             exec_mode: 'cluster',
             watch: false,
             error_file: 'err.log',
