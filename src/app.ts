@@ -7,7 +7,9 @@ import helmet = require('helmet');
 import dotenv = require('dotenv');
 import winston = require('winston');
 
-dotenv.config({path: path.resolve('.env')});
+if (process.env.NODE_ENV === 'production') {
+    dotenv.config({path: path.resolve('.env')});
+}
 
 import { apiRouter } from './controllers/api/api.router';
 
