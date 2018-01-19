@@ -15,7 +15,7 @@ const api_router_1 = require("./controllers/api/api.router");
 class Server {
     constructor() {
         this.app = express();
-        this.app.set('port', process.env.PORT || 8080);
+        this.app.set('port', process.env.PORT || 8000);
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: true }));
         this.app.use(cookieParser());
