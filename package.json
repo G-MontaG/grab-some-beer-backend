@@ -68,7 +68,7 @@
     "start-dev": "cp -R .env ./compiled && cp package.json ./compiled/package.json && cp package-lock.json ./compiled/package-lock.json && cp README.md ./compiled/README.md  && pm2 start ecosystem-dev.config.js",
     "start-debug": "cp -R .env ./compiled && cp package.json ./compiled/package.json && cp package-lock.json ./compiled/package-lock.json && cp README.md ./compiled/README.md  && pm2 start ecosystem-debug.config.js",
     "start-prod": "cp package.json ./compiled/package.json && cp package-lock.json ./compiled/package-lock.json && cp README.md ./compiled/README.md  && pm2 start ecosystem-prod.config.js --env production",
-    "start-heroku": "cp package.json ./compiled/package.json && cp package-lock.json ./compiled/package-lock.json && cp README.md ./compiled/README.md  && pm2 start ecosystem-prod.config.js --env production -i max --attach",
+    "start-heroku": "cp package.json ./compiled/package.json && cp package-lock.json ./compiled/package-lock.json && cp README.md ./compiled/README.md  && node ./compiled/app.js",
     "list": "pm2 list",
     "monit": "pm2 monit",
     "show": "pm2 show",
