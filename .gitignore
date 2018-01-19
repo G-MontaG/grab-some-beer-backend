@@ -49,7 +49,6 @@ atlassian-ide-plugin.xml
 
 ### Project
 .env
-/compiled
 /compiled-test-bdd
 /compiled-test-tdd
 uploads/
