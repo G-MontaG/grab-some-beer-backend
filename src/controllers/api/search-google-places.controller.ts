@@ -11,7 +11,7 @@ class GooglePlacesController extends BaseController {
                 this.req.query,
                 {
                     'type': 'bar',
-                    'key': process.env.GOOGLE_PLACES_KEY,
+                    'key': process.env.GOOGLE_PLACES_KEY
                 }),
                 '&', '=', {encodeURIComponent: (s: any) => s}),
             method: 'GET'

@@ -9,7 +9,7 @@ class GooglePlacesController extends base_controller_1.BaseController {
             hostname: 'maps.googleapis.com',
             path: '/maps/api/place/nearbysearch/json?' + querystring.stringify(Object.assign({}, this.req.query, {
                 'type': 'bar',
-                'key': process.env.GOOGLE_PLACES_KEY,
+                'key': process.env.GOOGLE_PLACES_KEY
             }), '&', '=', { encodeURIComponent: (s) => s }),
             method: 'GET'
         };
