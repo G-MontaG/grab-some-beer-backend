@@ -33,7 +33,8 @@
     "jsonwebtoken": "^7.4.3",
     "moment": "^2.18.1",
     "pm2": "^2.6.1",
-    "uuid": "^3.1.0"
+    "uuid": "^3.1.0",
+    "winston": "^2.3.1"
   },
   "devDependencies": {
     "@types/body-parser": "^1.16.5",
@@ -50,8 +51,7 @@
     "@types/winston": "^2.3.5",
     "tslint": "^5.6.0",
     "tslint-immutable": "^4.1.0",
-    "typescript": "^2.4.2",
-    "winston": "^2.3.1"
+    "typescript": "^2.4.2"
   },
   "scripts": {
     "preinstall": "npm i pm2 -g",
@@ -65,9 +65,10 @@
     "web-update": "sudo cp ./nginx/web.conf /usr/local/etc/nginx/sites-available/grab-some-beer.com.conf",
     "nginx-test": "sudo nginx -t -c /etc/nginx/nginx.conf",
     "netstat": "netstat -Lan",
-    "start-dev": "cp -R environment ./compiled && cp package.json ./compiled/package.json && cp package-lock.json ./compiled/package-lock.json && cp README.md ./compiled/README.md  && pm2 start ecosystem-dev.config.js",
-    "start-debug": "cp -R environment ./compiled && cp package.json ./compiled/package.json && cp package-lock.json ./compiled/package-lock.json && cp README.md ./compiled/README.md  && pm2 start ecosystem-debug.config.js",
-    "start-prod": "cp -R environment ./compiled && cp package.json ./compiled/package.json && cp package-lock.json ./compiled/package-lock.json && cp README.md ./compiled/README.md  && pm2 start ecosystem-prod.config.js --env production",
+    "start-dev": "cp -R .env ./compiled && cp package.json ./compiled/package.json && cp package-lock.json ./compiled/package-lock.json && cp README.md ./compiled/README.md  && pm2 start ecosystem-dev.config.js",
+    "start-debug": "cp -R .env ./compiled && cp package.json ./compiled/package.json && cp package-lock.json ./compiled/package-lock.json && cp README.md ./compiled/README.md  && pm2 start ecosystem-debug.config.js",
+    "start-prod": "cp package.json ./compiled/package.json && cp package-lock.json ./compiled/package-lock.json && cp README.md ./compiled/README.md  && pm2 start ecosystem-prod.config.js --env production",
+    "start-heroku": "cp package.json ./compiled/package.json && cp package-lock.json ./compiled/package-lock.json && cp README.md ./compiled/README.md  && node ./compiled/app.js",
     "list": "pm2 list",
     "monit": "pm2 monit",
     "show": "pm2 show",
