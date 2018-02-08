@@ -4,6 +4,7 @@ import { foursquareHandler } from './search-foursquare.controller';
 import { googlePlacesHandler } from './search-google-places.controller';
 import { facebookPlacesHandler } from './search-facebook-places.controller';
 import { googlePlacesPhotoHandler } from './google-places-photo.controller';
+import { googlePlacesMapHandler } from './google-places-map.controller';
 
 class ApiRouter extends BaseRouter {
     protected readonly configurations: IRouterConfiguration[] = [
@@ -26,6 +27,11 @@ class ApiRouter extends BaseRouter {
             type: 'get',
             route: '/google-places-photo',
             handler: googlePlacesPhotoHandler
+        },
+        {
+            type: 'get',
+            route: '/google-places-map',
+            handler: googlePlacesMapHandler
         },
     ];
 
